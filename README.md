@@ -5,7 +5,7 @@ The **LinkShortner** is a django application running in a docker container which
 
 The frontend interface can be accessed at localhost:8000 where we can generate short link for any url.
 
-### Running the application
+### Running the application (In Production - for deployers)
 ##### Requirements
 - For running the application in docker container, **Docker** needs to be installed in the system if not already installed. Please follow the instruction for the installation: https://docs.docker.com/get-docker/
 
@@ -27,8 +27,31 @@ The frontend interface can be accessed at localhost:8000 where we can generate s
   *(The application runs on port 8000)* <br />
   The interface can be accessed at: <br />
   http://localhost:8000/
+
+### Running the application (For debug in local machine preferably windows - for developers) 
+##### Requirements
+- Clone the project repo: git clone https://github.com/sandip-ghimire/LinkShortner
+
+##### Steps
+- Set DEBUG=True in settings.py located inside short_link directory.
+- Open the command line from the root directory of the project (LinkShortner) and create virtual env:
+  >python -m venv venv
+- Activate virtual env:
+  >venv\Scripts\activate
+- Install dependencies:
+  >pip install -r requirements.txt
+- Make migrations:
+  >python manage.py makemigrations short_link
+- Migrate databases:
+  >python manage.py migrate short_link
+- Runserver at port 8000:
+  >python manage.py runserver 0.0.0.0:8000
   
-### Testing the application
+  *(The application runs on port 8000)* <br />
+  The interface can be accessed at: <br />
+  http://localhost:8000/
+  
+### Testing the application (In production)
 ###### Unit Test
 - While the application is running, it can be tested primarily using unit test. Command for unit test:
     >docker exec -it short_link ./manage.py test
