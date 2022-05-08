@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.statisticstable {
+    width: 100%!important;
+}
+
+#deleteLink {
+    margin-left: 5px;
+}
+
+#showerror, #msgbox {
+    color: #d43b3b;
+}

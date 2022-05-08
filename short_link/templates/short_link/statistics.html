@@ -1,0 +1,44 @@
+{% extends "short_link/base.html" %}
+{% block content %}
+<div class="contentWrapper container-fluid">
+    <div class="container">
+        <div class="form-group inputrow row">
+            <div class="col-md-12">
+                <div class="form-group row">
+
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table border="1" class='statisticstable'>
+                                <tr>
+                                    <th style="width:50%"><label> Links </label></th>
+                                    <th style="width:25%"><label> Clicks per day </label></th>
+                                    <th style="width:10%"><label> Action </label></th>
+                                </tr>
+                                {% for row in link_list %}
+                                <tr class="row{{row.id}}">
+                                    <td> <label class="form-control"> {{ row.link }} </label> </td>
+                                    <td> <label class="form-control" >{{ row.count }}</label> </td>
+                                    <td> <button type="button"
+                                                 class="input-group-append btn btn-danger deleteLink"
+                                                 link="{{ row.link }}">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+
+                        <div class="form-group msgdiv row">
+                            <label id="msgbox">{{ error }}</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var URL = "{{ url| safe }}";
+    var PREURL = "{{ preurl| safe }}";
+</script>
+{% endblock %}

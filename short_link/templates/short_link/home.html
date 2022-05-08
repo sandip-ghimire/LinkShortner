@@ -1,0 +1,40 @@
+{% extends "short_link/base.html" %}
+{% block content %}
+<div class="contentWrapper container-fluid">
+    <div class="container">
+        <div class="form-group inputrow row">
+            <div class="col-md-8">
+                <div class="form-group row">
+                    <label class="form-check-label col-1" for="longUrl">URL:</label>
+                    <div class="col-11">
+                        <input type="text" class="form-control" id="longUrl" name="longUrl"
+                               placeholder="Enter long URL here" style="width:100%">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="input-group-append btn btn-primary" id="createShortLink">Submit</button>
+            </div>
+        </div>
+
+        <div class="form-group displayrow row">
+            <label class="col-2" id="linklabel"></label>
+            <a target="_blank" class="col-md-6" id="shortLinkDisplay"></a>
+            <div class="col-md-2">
+                <a target="_blank" id="statistics"></a>
+            </div>
+
+        </div>
+
+        <div class="form-group errorrow row">
+            <label id="showerror"></label>
+        </div>
+
+    </div>
+</div>
+<script>
+    var URL = "{{ url| safe }}";
+    var PREURL = "{{ preurl| safe }}";
+</script>
+{% endblock %}
+
