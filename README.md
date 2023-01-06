@@ -1,4 +1,10 @@
 ### Application overview
+An application to create short url from the original url and also records the click count for the short url. This simple application implements some crucial concepts for application development such as:
+- REST Api implementation for encoding and decoding url
+- Unit tests for api endpoints
+- Frontend and backend implementation for web applicatin using python(django), jquery, mysql
+- Deployment of the application using docker, nginx, gunicorn
+
 The **LinkShortner** is a django application running in a docker container which communicate to frontend through django rest API. 
 
 *Gunicorn* is used as app server for running the wsgi application. *Nginx* is used for proxy server which runs inside the docker container and communicate through port 8000.
